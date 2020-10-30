@@ -28,7 +28,7 @@
 
 2. 模型
 
-   <img src="/Users/yumengshi/Library/Application Support/typora-user-images/image-20201030164946741.png" alt="image-20201030164946741" style="zoom:100%;" />
+   <img src="pics/coach.png" alt="image-20201030164946741" style="zoom:100%;" />
 
 3.  
 
