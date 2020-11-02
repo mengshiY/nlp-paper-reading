@@ -13,13 +13,17 @@
 
 [ Coucke et al. (2018)](https://arxiv.org/abs/1805.10190)提出，包含39种slot类型，每个领域有200条训练数据
 
-| Models  | Slot(F1) | Intent(Acc) | Overall(Acc) | Paper                                                        | Code |    会议  |
-| :------ | :------: | :----------------------------------------------------------: | :--: | :--: | ---- | ---- |
-| [DCA-Net](#dca-net) | 95.9 | 98.8 | 90.3 | [A Co-Interactive Transformer for Joint Slot Filling and Intent Detection](https://arxiv.org/abs/2010.03880) |https://github.com/kangbrilliant/DCA-Net||
-| [Coach](#coach) | 75.51(Few-shot on 50 (2.5%) samples) |             |              | [Coach: A Coarse-to-Fine Approach for Cross-domain Slot Filling](https://arxiv.org/abs/2004.11727) |https://github.com/zliucr/coach|ACL2020|
-|  | | | | |||
-|  | | | | |||
-|  | | | | |||
+| train | valid | test |
+| :---- | :----- | :---- |
+| 13084 | 700 | 700 |
+
+| Models              |               Slot(F1)               | Intent(Acc) | Overall(Acc) |                                                    Paper                                                     | Code                                     | 会议    |
+| :------------------ | :----------------------------------: | :---------: | :----------: | :----------------------------------------------------------------------------------------------------------: | ---------------------------------------- | ------- |
+| [DCA-Net](#dca-net) |                 95.9                 |    98.8     |     90.3     | [A Co-Interactive Transformer for Joint Slot Filling and Intent Detection](https://arxiv.org/abs/2010.03880) | https://github.com/kangbrilliant/DCA-Net |         |
+| [Coach](#coach)     | 75.51(Few-shot on 50 (2.5%) samples) |             |              |      [Coach: A Coarse-to-Fine Approach for Cross-domain Slot Filling](https://arxiv.org/abs/2004.11727)      | https://github.com/zliucr/coach          | ACL2020 |
+|                     |                                      |             |              |                                                                                                              |                                          |         |
+|                     |                                      |             |              |                                                                                                              |                                          |         |
+|                     |                                      |             |              |                                                                                                              |                                          |         |
 
 
 
