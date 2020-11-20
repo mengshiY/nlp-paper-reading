@@ -1,6 +1,8 @@
 # Slot Filling and Intent Detection               
 
-- [Slot Filling](#slot-filling)
+- [Slot Filling and Intent Detection](#slot-filling-and-intent-detection)
+- [该任务主要解决什么问题](#该任务主要解决什么问题)
+- [与NER任务的区别是什么](#与ner任务的区别是什么)
   - [数据集](#数据集)
     - [SNIPS](#snips)
     - [ATIS](#atis)
@@ -8,6 +10,15 @@
     - [<a id="dca-net">A Co-Interactive Transformer for Joint Slot Filling and Intent Detection</a>](#a-co-interactive-transformer-for-joint-slot-filling-and-intent-detection)
     - [<a id="slotrefine">SlotRefine: A Fast Non-Autoregressive Model for Joint Intent Detection and Slot Filling</a>](#slotrefine-a-fast-non-autoregressive-model-for-joint-intent-detection-and-slot-filling)
     - [<a id="coach"> Coach: A Coarse-to-Fine Approach for Cross-domain Slot Filling</a>](#-coach-a-coarse-to-fine-approach-for-cross-domain-slot-filling)
+    - [<a id="cmnet">CM-Net: A Novel Collaborative Memory Network for Spoken Language Understanding</a>](#cm-net-a-novel-collaborative-memory-network-for-spoken-language-understanding)
+    - [Discriminative Nearest Neighbor Few-Shot Intent Detection by Transferring Natural Language Inference](#discriminative-nearest-neighbor-few-shot-intent-detection-by-transferring-natural-language-inference)
+  - [Ⅰ 半监督方法](#ⅰ-半监督方法)
+    - [Semi-supervised training using adversarial multi-task learning for spoken language understanding(IEEE 2018)](#semi-supervised-training-using-adversarial-multi-task-learning-for-spoken-language-understandingieee-2018)
+    - [Semi-Supervised Spoken Language Understanding via Self-Supervised Speech and Language Model Pretraining(2020)](#semi-supervised-spoken-language-understanding-via-self-supervised-speech-and-language-model-pretraining2020)
+    - [Semi-Supervised Speech-Language Joint Pre-Training for Spoken Language Understanding(2020)](#semi-supervised-speech-language-joint-pre-training-for-spoken-language-understanding2020)
+  - [Ⅱ Cross-View Training](#ⅱ-cross-view-training)
+    - [To BERT or Not to BERT: Comparing Task-specifific and Task-agnostic Semi-Supervised Approaches for Sequence Tagging(EMNLP 2020)](#to-bert-or-not-to-bert-comparing-task-specifific-and-task-agnostic-semi-supervised-approaches-for-sequence-taggingemnlp-2020)
+  - [Ⅲ](#ⅲ)
 
 # 该任务主要解决什么问题
 
@@ -157,7 +168,30 @@
 
 3. 存在问题
 
-## Ⅱ
+## Ⅱ Cross-View Training
+
+1. 创新点
+   - 在主要训练阶段，只使用了labeled data，仅能从任务相关数据中学习，限制了模型的泛化能力
+   - **Decoder部分**需依据任务的不同而单独设计。而CVT就主要在Decoder端体现。**通过对传入Decoder的feature representation进行不同方式的限制来构造多个view的效果**。然后，以不受限Decoder的输出与每个受限Decoder的输出的差异度量作为监督信号，进行端到端的训练。期望受限Decoder即使在feature representation信息不充分的情况下，也能输出较好的结果，同时，由于整个model的Encoder部分是共享的，在降低该部分loss的时候，也就相应的促使Encoder抽取出更好的feature representation以及提高不受限Decoder的判别能力。 另外，由于这里的监督信号不需要label信息的参与，所以，可以利用大量unlabeled data来对model进行有效泛化。
+   - 由于副模型仅在训练时使用，CVT并没有增加inference time和已完全训练模型的参数量
+2. 模型
+  ![image-20201120171827279](./pics/cvt_emnlp2020.png)
+  - encoder部分，采用two-layer CNN-BiLSTM(先采用Char-CNN对character embedding抽取出char represention，再将其余word embedding相拼接作为two-layer BiLSTM的输入)
+  - 关于CVT的思想，文章在introduction部分详述了演化过程：首先，如何利用unlabel data呢，作者想到self-training,但是self-training有tautological的问题，即在labeled data上train好的model，先给unlabel data预测一个pseudo-label，并将其加入到label dataset中re-train model。有可能预测的pseudo-label就是错的，再训练反而对错误的信号更confident了。因此，作者想到Deep semi-supervised中的consistency regularization方法（在input加扰动 or 利用NN的随机特性），但是对于NLP问题，不太好给离散的input加扰动。于是，作者从multi-view learning中找到灵感，巧妙的构造了多个view来利用unlabel data。
+3. 存在问题
+
+### [To BERT or Not to BERT: Comparing Task-specifific and Task-agnostic Semi-Supervised Approaches for Sequence Tagging(EMNLP 2020)]()
+
+1. 创新点
+
+   - 比较CVT(任务相关)与BERT(任务无关)方法，实验验证了CVT方法在slot filling等任务上的有效性
+
+2. 模型
+
+   - CVT方法中主模型不受限，使用labeled data进行训练
+   - 副模型受限，从不同的view在unlabled data中训练，试图模仿主模型的预测结果
+
+3. 存在问题
 
 ## Ⅲ
 
