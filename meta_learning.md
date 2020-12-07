@@ -40,7 +40,7 @@
 
 ## Natural Language Understanding
 
-### Investigating Meta-Learning Algorithms for Low-Resource Natural Language Understanding Tasks
+### Investigating Meta-Learning Algorithms for Low-Resource Natural Language Understanding Tasks(ACL 2019)
 
 1. 创新点
 
@@ -68,3 +68,12 @@
 
 4. 
 
+## 跨语言
+
+###  
+
+1. 创新点
+   - Negative Interference：使用同一个模型进行多语言的训练，虽然会对低资源语言性能有所提升，但也会损害高资源语言的性能
+   - 实验结论证明了Negative Interference在高资源及低资源语言中都可能存在
+   - 研究Negative Interference形成的原因以及解决的方法
+2. 

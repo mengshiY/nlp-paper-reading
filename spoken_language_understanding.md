@@ -69,7 +69,7 @@
 
 
 
-## 论文解读
+## 模型改进
 
 ### <a id="dca-net">A Co-Interactive Transformer for Joint Slot Filling and Intent Detection</a>
 
@@ -193,5 +193,26 @@
 
 3. 存在问题
 
-## Ⅲ
+## Ⅲ Meta-Learning
 
+1. 创新点
+2. 模型
+3. 存在问题
+   - unstable
+
+## Ⅳ Few-shot Learning
+
+### [Few-shot Learning for Multi-label Intent Detection(AAAI 2021)]()
+
+多意图分类的问题：
+
+- 阈值该怎么选（考虑阈值+标签数目）
+
+1. 创新点
+   - 在高资源领域学习通用阈值，然后将其泛化到低资源领域
+   - 引入label name embedding
+2. 模型与方法
+3. 存在问题
+   - 使用了部分机器学习方法，抽取了特征，并不是每种特征都是有益的
+   - 
+4. 
