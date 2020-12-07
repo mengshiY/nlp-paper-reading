@@ -142,7 +142,7 @@
    
 2. 模型
 
-   ![image-20201120100441028](./pics/semi_ieee2018.png)
+   <img src="./pics/semi_ieee2018.png" alt="image-20201120100441028" style="zoom:50%;" />
 
 3. 存在问题
 
@@ -164,7 +164,7 @@
 	
 2. 模型
 
-   ![image-20201120162329865](./pics/asr_2020_2.png)
+   <img src="./pics/asr_2020_2.png" alt="image-20201120162329865" style="zoom: 67%;" />
 
 3. 存在问题
 
@@ -175,7 +175,7 @@
    - **Decoder部分**需依据任务的不同而单独设计。而CVT就主要在Decoder端体现。**通过对传入Decoder的feature representation进行不同方式的限制来构造多个view的效果**。然后，以不受限Decoder的输出与每个受限Decoder的输出的差异度量作为监督信号，进行端到端的训练。期望受限Decoder即使在feature representation信息不充分的情况下，也能输出较好的结果，同时，由于整个model的Encoder部分是共享的，在降低该部分loss的时候，也就相应的促使Encoder抽取出更好的feature representation以及提高不受限Decoder的判别能力。 另外，由于这里的监督信号不需要label信息的参与，所以，可以利用大量unlabeled data来对model进行有效泛化。
    - 由于副模型仅在训练时使用，CVT并没有增加inference time和已完全训练模型的参数量
 2. 模型
-  ![image-20201120171827279](./pics/cvt_emnlp2020.png)
+  <img src="./pics/cvt_emnlp2020.png" alt="image-20201120171827279" style="zoom:67%;" />
   - encoder部分，采用two-layer CNN-BiLSTM(先采用Char-CNN对character embedding抽取出char represention，再将其余word embedding相拼接作为two-layer BiLSTM的输入)
   - 关于CVT的思想，文章在introduction部分详述了演化过程：首先，如何利用unlabel data呢，作者想到self-training,但是self-training有tautological的问题，即在labeled data上train好的model，先给unlabel data预测一个pseudo-label，并将其加入到label dataset中re-train model。有可能预测的pseudo-label就是错的，再训练反而对错误的信号更confident了。因此，作者想到Deep semi-supervised中的consistency regularization方法（在input加扰动 or 利用NN的随机特性），但是对于NLP问题，不太好给离散的input加扰动。于是，作者从multi-view learning中找到灵感，巧妙的构造了多个view来利用unlabel data。
 3. 存在问题
