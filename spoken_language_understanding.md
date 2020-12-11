@@ -6,10 +6,9 @@
   - [数据集](#数据集)
     - [SNIPS](#snips)
     - [ATIS](#atis)
-  - [论文解读](#论文解读)
+  - [模型改进](#模型改进)
     - [<a id="dca-net">A Co-Interactive Transformer for Joint Slot Filling and Intent Detection</a>](#a-co-interactive-transformer-for-joint-slot-filling-and-intent-detection)
     - [<a id="slotrefine">SlotRefine: A Fast Non-Autoregressive Model for Joint Intent Detection and Slot Filling</a>](#slotrefine-a-fast-non-autoregressive-model-for-joint-intent-detection-and-slot-filling)
-    - [<a id="coach"> Coach: A Coarse-to-Fine Approach for Cross-domain Slot Filling</a>](#-coach-a-coarse-to-fine-approach-for-cross-domain-slot-filling)
     - [<a id="cmnet">CM-Net: A Novel Collaborative Memory Network for Spoken Language Understanding</a>](#cm-net-a-novel-collaborative-memory-network-for-spoken-language-understanding)
     - [Discriminative Nearest Neighbor Few-Shot Intent Detection by Transferring Natural Language Inference](#discriminative-nearest-neighbor-few-shot-intent-detection-by-transferring-natural-language-inference)
   - [Ⅰ 半监督方法](#ⅰ-半监督方法)
@@ -18,7 +17,12 @@
     - [Semi-Supervised Speech-Language Joint Pre-Training for Spoken Language Understanding(2020)](#semi-supervised-speech-language-joint-pre-training-for-spoken-language-understanding2020)
   - [Ⅱ Cross-View Training](#ⅱ-cross-view-training)
     - [To BERT or Not to BERT: Comparing Task-specifific and Task-agnostic Semi-Supervised Approaches for Sequence Tagging(EMNLP 2020)](#to-bert-or-not-to-bert-comparing-task-specifific-and-task-agnostic-semi-supervised-approaches-for-sequence-taggingemnlp-2020)
-  - [Ⅲ](#ⅲ)
+  - [Ⅲ Meta-Learning](#ⅲ-meta-learning)
+  - [Ⅳ Few-shot Learning](#ⅳ-few-shot-learning)
+    - [Few-shot Learning for Multi-label Intent Detection(AAAI 2021)](#few-shot-learning-for-multi-label-intent-detectionaaai-2021)
+  - [Cross-domain](#cross-domain)
+    - [<a id="coach"> Coach: A Coarse-to-Fine Approach for Cross-domain Slot Filling(ACL 2020)</a>](#-coach-a-coarse-to-fine-approach-for-cross-domain-slot-fillingacl-2020)
+    - [Contrastive Zero-Shot Learning for Cross-Domain Slot Filling with Adversarial Attack(COLING 2020)](#contrastive-zero-shot-learning-for-cross-domain-slot-filling-with-adversarial-attackcoling-2020)
 
 # 该任务主要解决什么问题
 
@@ -97,18 +101,6 @@
 
 3. 存在问题
 
-### <a id="coach"> Coach: A Coarse-to-Fine Approach for Cross-domain Slot Filling</a>
-
-1. 创新点
-
-   - 针对特定领域数据稀缺问题，提出一种从粗到细的cross-domain slot filling方法
-   - 提出了一种模板正则化方法，通过基于话语模板**对话语表示进行正则化**来提高自适应鲁棒性
-
-2. 模型
-
-   <img src="pics/coach.png" alt="image-20201030164946741" style="zoom:100%;" />
-
-3.  存在问题
 
 ### <a id="cmnet">CM-Net: A Novel Collaborative Memory Network for Spoken Language Understanding</a>
 
@@ -215,4 +207,89 @@
 3. 存在问题
    - 使用了部分机器学习方法，抽取了特征，并不是每种特征都是有益的
    - 
-4. 
+
+## Cross-domain
+### Robust Zero-Shot Cross-Domain Slot Filling with Example Values(ACL 2019)
+
+1. 创新点
+
+   - 提出使用少量槽位的example values + slot description实现零样本的迁移
+   -  
+
+2. 模型
+
+   ![image-20201210163740145](./pics/cross-domain-acl2019.png)
+
+
+3. 优缺点
+   - 当槽位数量比较多时，实现效率不高
+   - 会遇到overlapping prediction问题
+
+4. Future Work
+- 多标签联合建模是未来发展方向
+- 另一个可能的方向是联合zero-shot entity recognition，以降低预测时对example values的需求
+
+
+
+
+### <a id="coach"> Coach: A Coarse-to-Fine Approach for Cross-domain Slot Filling(ACL 2020)</a>
+
+1. 创新点
+
+   - 针对特定领域数据稀缺问题，提出一种从粗到细的cross-domain slot filling方法
+   - 提出了一种模板正则化方法，通过基于话语模板**对话语表示进行正则化**来提高自适应鲁棒性
+
+2. 模型
+
+   <img src="pics/coach.png" alt="image-20201030164946741" style="zoom:100%;" />
+
+3.  存在问题
+
+### [Contrastive Zero-Shot Learning for Cross-Domain Slot Filling with Adversarial Attack(COLING 2020)]()
+
+1. 创新点
+
+   - 通过构造正负例进行对比学习(Contrastive Learning)
+   - 对抗攻击训练提高鲁棒性
+   - 
+
+2. 模型
+
+   ![image-20201208103216847](./pics/cross-domain.png)
+
+3. 存在问题
+
+
+
+## 其他
+
+### [Style Attuned Pre-training and Parameter Effificient Fine-tuning for Spoken Language Understanding]()
+
+1. 创新点
+
+   - 使用带有ASR噪声的对话数据集预训练了对话语言模型(CLM)
+   - 并将CLM应用到轻量级的编码器结构
+
+2. 模型
+
+   <img src="./pics/interspeech20.png" alt="image-20201209105750517" style="zoom:50%;" />
+
+3. 
+
+### Augmented Natural Language for Generative Sequence Labeling(EMNLP 2020)
+
+1. 创新点
+
+   - 将序列标注任务作为生成任务来处理
+
+2. 模型
+
+   
+
+   ![image-20201211170115407](/Users/yumengshi/Documents/notes/nlp-paper-reading/pics/emnlp2020-generative1.png)
+
+3. 结论
+
+   - 在低资源场景上更有效，更方便迁移至新的领域
+   - 这种联合的输入输出模式使得模型能
+
