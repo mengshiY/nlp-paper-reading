@@ -112,9 +112,6 @@
 
 3. 存在问题
 
-4. 
-
-
 
 
 
@@ -251,8 +248,7 @@
 
    - 通过构造正负例进行对比学习(Contrastive Learning)
    - 对抗攻击训练提高鲁棒性
-   - 
-
+   
 2. 模型
 
    ![image-20201208103216847](./pics/cross-domain.png)
@@ -293,3 +289,20 @@
    - 在低资源场景上更有效，更方便迁移至新的领域
    - 这种联合的输入输出模式使得模型能
 
+### Recursive Template-based Frame Generation for Task Oriented Dialog(ACL 2020)
+
+1. 创新点
+
+   - 提供了一个迭代的、层级的、基于框架的表示，并展示了如何从数据中进行学习
+   - 解码器迭代地生成模板，并将slot value填入模板中
+   - 标签具有层次关系，论文试图利用到这种层次关系
+
+2. 模型
+
+   <img src="./pics/acl20_template.png" alt="image-20201213231840654" style="zoom: 67%;" />
+
+   <img src="./pics/acl_template_model.png" alt="image-20201213232006875" style="zoom: 67%;" />
+
+3. 结论
+
+   - 本文提出的方法捕获了槽位标签之间复杂的关系
