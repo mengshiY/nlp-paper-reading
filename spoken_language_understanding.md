@@ -7,9 +7,9 @@
     - [SNIPS](#snips)
     - [ATIS](#atis)
   - [模型改进](#模型改进)
-    - [<a id="dca-net">A Co-Interactive Transformer for Joint Slot Filling and Intent Detection</a>](#a-co-interactive-transformer-for-joint-slot-filling-and-intent-detection)
-    - [<a id="slotrefine">SlotRefine: A Fast Non-Autoregressive Model for Joint Intent Detection and Slot Filling</a>](#slotrefine-a-fast-non-autoregressive-model-for-joint-intent-detection-and-slot-filling)
-    - [<a id="cmnet">CM-Net: A Novel Collaborative Memory Network for Spoken Language Understanding</a>](#cm-net-a-novel-collaborative-memory-network-for-spoken-language-understanding)
+    - [A Co-Interactive Transformer for Joint Slot Filling and Intent Detection](#a-co-interactive-transformer-for-joint-slot-filling-and-intent-detection)
+    - [SlotRefine: A Fast Non-Autoregressive Model for Joint Intent Detection and Slot Filling](#slotrefine-a-fast-non-autoregressive-model-for-joint-intent-detection-and-slot-filling)
+    - [CM-Net: A Novel Collaborative Memory Network for Spoken Language Understanding](#cm-net-a-novel-collaborative-memory-network-for-spoken-language-understanding)
     - [Discriminative Nearest Neighbor Few-Shot Intent Detection by Transferring Natural Language Inference](#discriminative-nearest-neighbor-few-shot-intent-detection-by-transferring-natural-language-inference)
   - [Ⅰ 半监督方法](#ⅰ-半监督方法)
     - [Semi-supervised training using adversarial multi-task learning for spoken language understanding(IEEE 2018)](#semi-supervised-training-using-adversarial-multi-task-learning-for-spoken-language-understandingieee-2018)
@@ -21,8 +21,13 @@
   - [Ⅳ Few-shot Learning](#ⅳ-few-shot-learning)
     - [Few-shot Learning for Multi-label Intent Detection(AAAI 2021)](#few-shot-learning-for-multi-label-intent-detectionaaai-2021)
   - [Cross-domain](#cross-domain)
-    - [<a id="coach"> Coach: A Coarse-to-Fine Approach for Cross-domain Slot Filling(ACL 2020)</a>](#-coach-a-coarse-to-fine-approach-for-cross-domain-slot-fillingacl-2020)
+    - [Robust Zero-Shot Cross-Domain Slot Filling with Example Values(ACL 2019)](#robust-zero-shot-cross-domain-slot-filling-with-example-valuesacl-2019)
+    - [Coach: A Coarse-to-Fine Approach for Cross-domain Slot Filling(ACL 2020)](#coach-a-coarse-to-fine-approach-for-cross-domain-slot-fillingacl-2020)
     - [Contrastive Zero-Shot Learning for Cross-Domain Slot Filling with Adversarial Attack(COLING 2020)](#contrastive-zero-shot-learning-for-cross-domain-slot-filling-with-adversarial-attackcoling-2020)
+  - [其他](#其他)
+    - [Style Attuned Pre-training and Parameter Effificient Fine-tuning for Spoken Language Understanding](#style-attuned-pre-training-and-parameter-effificient-fine-tuning-for-spoken-language-understanding)
+    - [Augmented Natural Language for Generative Sequence Labeling(EMNLP 2020)](#augmented-natural-language-for-generative-sequence-labelingemnlp-2020)
+    - [Recursive Template-based Frame Generation for Task Oriented Dialog(ACL 2020)](#recursive-template-based-frame-generation-for-task-oriented-dialogacl-2020)
 
 # 该任务主要解决什么问题
 
@@ -75,7 +80,7 @@
 
 ## 模型改进
 
-### <a id="dca-net">A Co-Interactive Transformer for Joint Slot Filling and Intent Detection</a>
+### A Co-Interactive Transformer for Joint Slot Filling and Intent Detection
 
 1. 创新点
 
@@ -89,7 +94,7 @@
 
    
 
-### <a id="slotrefine">SlotRefine: A Fast Non-Autoregressive Model for Joint Intent Detection and Slot Filling</a>
+### SlotRefine: A Fast Non-Autoregressive Model for Joint Intent Detection and Slot Filling
 
 1. 创新点
 
@@ -102,7 +107,7 @@
 3. 存在问题
 
 
-### <a id="cmnet">CM-Net: A Novel Collaborative Memory Network for Spoken Language Understanding</a>
+### CM-Net: A Novel Collaborative Memory Network for Spoken Language Understanding
 
 1. 创新点
 
@@ -229,7 +234,7 @@
 
 
 
-### <a id="coach"> Coach: A Coarse-to-Fine Approach for Cross-domain Slot Filling(ACL 2020)</a>
+### Coach: A Coarse-to-Fine Approach for Cross-domain Slot Filling(ACL 2020)
 
 1. 创新点
 
